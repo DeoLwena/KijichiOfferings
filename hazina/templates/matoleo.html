@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+        <h3 class="mb-3 fw-bold text-primary">📥 Record Church Offering</h3>
+        <ol>
+            <ul> Hello am on here</ul>
+                {% for mtoaji in name %}
+            <ul> {{mtoaji.namba_ya_ushirika}} :{{mtoaji.jina_la_kwanza}} :{{mtoaji.email}}  </ul>
+             {% endfor %}
+        </ol>
+</div>
+{% endblock %}

@@ -1,0 +1,170 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <h3 class="fw-bold text-dark mb-0">Dashboard Overview</h3>
+            <p class="text-muted">Welcome back, Clerk. Here is what's happening today.</p>
+        </div>
+        <div class="col-md-4 text-md-end">
+            <button class="btn btn-outline-dark me-2 shadow-sm" style="border-radius: 12px;">
+                <i class="bi bi-download me-2"></i>Export PDF
+            </button>
+            <button class="btn btn-teal shadow-sm" style="background-color: var(--sda-teal); color: white; border-radius: 12px; padding: 10px 20px;">
+                <i class="bi bi-plus-lg me-2"></i>New Entry
+            </button>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm p-3" style="border-radius: 20px; background: linear-gradient(45deg, #ffffff, #f0fdfd);">
+                <div class="d-flex align-items-center">
+                    <div class="bg-teal p-3 rounded-4 me-3" style="background-color: rgba(0,128,128,0.1); color: var(--sda-teal);">
+                        <i class="bi bi-safe2-fill h4 mb-0"></i>
+                    </div>
+                    <div>
+                        <small class="text-muted fw-bold text-uppercase" style="font-size: 0.7rem;">Jumla ya Zaka</small>
+                        <h4 class="fw-bold mb-0">Tsh 1.2M</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm p-3" style="border-radius: 20px;">
+                <div class="d-flex align-items-center">
+                    <div class="p-3 rounded-4 me-3" style="background-color: rgba(197, 160, 89, 0.1); color: var(--sda-gold);">
+                        <i class="bi bi-piggy-bank-fill h4 mb-0"></i>
+                    </div>
+                    <div>
+                        <small class="text-muted fw-bold text-uppercase" style="font-size: 0.7rem;">Sadaka za Kawaida</small>
+                        <h4 class="fw-bold mb-0">Tsh 450k</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm p-3" style="border-radius: 20px;">
+                <div class="d-flex align-items-center">
+                    <div class="p-3 rounded-4 me-3" style="background-color: rgba(0, 0, 0, 0.05); color: #333;">
+                        <i class="bi bi-building-fill-check h4 mb-0"></i>
+                    </div>
+                    <div>
+                        <small class="text-muted fw-bold text-uppercase" style="font-size: 0.7rem;">Fungu la Idara</small>
+                        <h4 class="fw-bold mb-0">Tsh 890k</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card border-0 shadow-sm p-3" style="border-radius: 20px;">
+                <div class="d-flex align-items-center">
+                    <div class="p-3 rounded-4 me-3" style="background-color: #f8f9fa; color: var(--sda-teal);">
+                        <i class="bi bi-people-fill h4 mb-0"></i>
+                    </div>
+                    <div>
+                        <small class="text-muted fw-bold text-uppercase" style="font-size: 0.7rem;">Watoaji Waliojisajili</small>
+                        <h4 class="fw-bold mb-0">248</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm p-4" style="border-radius: 25px;">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h5 class="fw-bold mb-0">Matoleo ya Hivi Karibuni</h5>
+                    <a href="#" class="text-decoration-none small fw-bold" style="color: var(--sda-teal);">View All</a>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light" style="border-radius: 10px;">
+                            <tr>
+                                <th class="border-0 px-3">Mtoaji</th>
+                                <th class="border-0">Aina</th>
+                                <th class="border-0">Idara</th>
+                                <th class="border-0 text-end">Kiasi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="px-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-light d-flex align-items-center justify-content-center me-3" style="width: 35px; height: 35px; font-weight: bold; color: var(--sda-teal); font-size: 0.8rem;">
+                                            JM
+                                        </div>
+                                        <div>
+                                            <p class="mb-0 fw-bold" style="font-size: 0.9rem;">John Mwita</p>
+                                            <small class="text-muted" style="font-size: 0.75rem;">Mshiriki</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="badge rounded-pill bg-success-subtle text-success px-3">Zaka</span></td>
+                                <td>Kwaya</td>
+                                <td class="text-end fw-bold">Tsh 50,000</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3">
+                                    <div class="d-flex align-items-center">
+                                        <div class="rounded-circle bg-light d-flex align-items-center justify-content-center me-3" style="width: 35px; height: 35px; font-weight: bold; color: var(--sda-teal); font-size: 0.8rem;">
+                                            SA
+                                        </div>
+                                        <div>
+                                            <p class="mb-0 fw-bold" style="font-size: 0.9rem;">Sarah Amina</p>
+                                            <small class="text-muted" style="font-size: 0.75rem;">Mgeni</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td><span class="badge rounded-pill bg-info-subtle text-info px-3">Sadaka</span></td>
+                                <td>General</td>
+                                <td class="text-end fw-bold">Tsh 15,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card border-0 shadow-sm p-4" style="border-radius: 25px; background-color: #ffffff;">
+                <h5 class="fw-bold mb-4">Mchanganuo wa Idara</h5>
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small class="fw-bold">Huduma za Watoto</small>
+                        <small class="text-muted">45%</small>
+                    </div>
+                    <div class="progress" style="height: 6px;">
+                        <div class="progress-bar bg-teal" role="progressbar" style="width: 45%; background-color: var(--sda-teal);"></div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small class="fw-bold">Kwaya Kuu</small>
+                        <small class="text-muted">30%</small>
+                    </div>
+                    <div class="progress" style="height: 6px;">
+                        <div class="progress-bar" role="progressbar" style="width: 30%; background-color: var(--sda-gold);"></div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <small class="fw-bold">Maendeleo</small>
+                        <small class="text-muted">25%</small>
+                    </div>
+                    <div class="progress" style="height: 6px;">
+                        <div class="progress-bar bg-dark" role="progressbar" style="width: 25%;"></div>
+                    </div>
+                </div>
+                
+                <div class="mt-5 p-3 rounded-4 text-center" style="background: var(--sda-teal-gradient); color: white;">
+                    <i class="bi bi-lightning-charge-fill h3"></i>
+                    <p class="small mb-0 mt-2">Generate Sabbath Financial Report</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

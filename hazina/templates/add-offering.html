@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row mb-4">
+        <div class="col">
+            <h2 class="fw-bold text-dark">Ingiza Taarifa za Matoleo</h2>
+            <p class="text-muted">Fill the form below to record tithes and offerings.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-8">
+            <div class="card card-custom p-4">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Jina la Mtoaji</label>
+                            <select class="form-select form-control" name="mtoaji">
+                                <option selected>Chagua Mtoaji...</option>
+                                </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Kiasi (Amount)</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-white border-end-0">Tsh</span>
+                                <input type="number" class="form-control border-start-0" name="kiasi" placeholder="0.00">
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Aina ya Matoleo</label>
+                            <select class="form-select form-control" name="ainayamatoleo">
+                                <option value="Z">Zaka</option>
+                                <option value="S">Sadaka</option>
+                                <option value="I">Idara</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Idara husika</label>
+                            <select class="form-select form-control" name="idara">
+                                </select>
+                        </div>
+
+                        <div class="col-12 mt-4 text-end">
+                            <button type="button" class="btn btn-light me-2 px-4" style="border-radius: 10px;">Ghairi</button>
+                            <button type="submit" class="btn btn-teal shadow-sm px-5">Hifadhi Taarifa</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card card-custom p-4 bg-dark text-white shadow">
+                <h5 class="fw-bold border-bottom pb-2 border-secondary">Muhtasari wa Leo</h5>
+                <div class="d-flex justify-content-between mt-3">
+                    <span>Zaka:</span>
+                    <span class="fw-bold text-teal" style="color: #00d1d1 !important;">Tsh 450,000</span>
+                </div>
+                <div class="d-flex justify-content-between mt-2">
+                    <span>Sadaka:</span>
+                    <span class="fw-bold">Tsh 120,000</span>
+                </div>
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <span class="h6">Jumla Kuu:</span>
+                    <span class="h6 fw-bold">Tsh 570,000</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
