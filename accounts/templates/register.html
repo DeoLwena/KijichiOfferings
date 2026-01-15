@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Kijichi SDA Stewardship</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --sda-teal: #008080;
+            --sda-teal-dark: #004d4d;
+            --sda-gold: #c5a059;
+        }
+        body { background-color: #f4f7f6; font-family: 'Inter', sans-serif; }
+        .reg-container { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .reg-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+        }
+        .form-control {
+            border-radius: 12px;
+            padding: 10px 15px;
+            border: 1px solid #e0e0e0;
+        }
+        .btn-teal {
+            background: var(--sda-teal);
+            color: white;
+            border-radius: 12px;
+            padding: 12px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container reg-container">
+    <div class="reg-card">
+        <div class="text-center mb-4">
+            <i class="bi bi-intersect h2" style="color: var(--sda-teal);"></i>
+            <h4 class="fw-bold mt-2">Sajili Clerk Mpya</h4>
+            <p class="text-muted small">Tengeneza akaunti ya usimamizi wa matoleo</p>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label small fw-bold">Jina Kamili</label>
+                <input type="text" class="form-control" placeholder="e.g. John Doe">
+            </div>
+            <div class="mb-3">
+                <label class="form-label small fw-bold">Barua Pepe (Email)</label>
+                <input type="email" class="form-control" placeholder="jina@email.com">
+            </div>
+            <div class="mb-3">
+                <label class="form-label small fw-bold">Nywila (Password)</label>
+                <input type="password" class="form-control" placeholder="********">
+            </div>
+            <div class="mb-4">
+                <label class="form-label small fw-bold">Thibitisha Nywila</label>
+                <input type="password" class="form-control" placeholder="********">
+            </div>
+            <button type="submit" class="btn btn-teal w-100 mb-3 shadow">Kamilisha Usajili</button>
+            <div class="text-center">
+                <span class="small text-muted">Tayari unayo akaunti? <a href="/login/" class="text-decoration-none fw-bold" style="color: var(--sda-teal);">Ingia Hapa</a></span>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
