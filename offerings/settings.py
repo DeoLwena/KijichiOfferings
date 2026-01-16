@@ -73,7 +73,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'offerings.wsgi.application'
 
-LOGIN_REDIRECT_URL ='/'
+LOGIN_REDIRECT_URL ='dashboard'
 LOGOUT_REDIRECT_URL = "/login/"
 LOGIN_URL = 'login'
 
