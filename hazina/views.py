@@ -3,10 +3,14 @@ from .models import Mtoaji
 from django.http import HttpResponse
 # Create your views here.
 
-def matoleo(request):
+def Addofferings(request):
     return render(request,'add-offering.html')
 
-def Home(request):
-    aliyetoa_queryset = Mtoaji.objects.filter(namba_ya_ushirika__range=(10,34))
+def Dashboard(request):
+    return render(request,'dashboard.html')
 
-    return render(request,'dashboard.html',{'name':aliyetoa_queryset})
+def Clerks(request):
+    return render(request,'Clerks.html')
+
+def Reports(request):
+    return render(request,'Reports.html')

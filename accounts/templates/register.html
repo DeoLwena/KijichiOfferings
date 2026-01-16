@@ -50,24 +50,24 @@
         <form method="POST">
             {% csrf_token %}
             <div class="mb-3">
-                <label class="form-label small fw-bold">Jina Kamili</label>
-                <input type="text" class="form-control" placeholder="e.g. John Doe">
+                <label class="form-label small fw-bold">Full name</label>
+                <input type="text" class="form-control" name="username" placeholder="e.g. Jane Woka">
             </div>
             <div class="mb-3">
-                <label class="form-label small fw-bold">Barua Pepe (Email)</label>
-                <input type="email" class="form-control" placeholder="jina@email.com">
+                <label class="form-label small fw-bold">Email</label>
+                <input type="email" class="form-control" name="email" placeholder="janewoka@email.com">
             </div>
             <div class="mb-3">
-                <label class="form-label small fw-bold">Nywila (Password)</label>
-                <input type="password" class="form-control" placeholder="********">
+                <label class="form-label small fw-bold">Password</label>
+                <input type="password" class="form-control" name="password1" placeholder="********">
             </div>
             <div class="mb-4">
-                <label class="form-label small fw-bold">Thibitisha Nywila</label>
-                <input type="password" class="form-control" placeholder="********">
+                <label class="form-label small fw-bold">confirm password</label>
+                <input type="password" class="form-control" name="password2" placeholder="********">
             </div>
-            <button type="submit" class="btn btn-teal w-100 mb-3 shadow">Kamilisha Usajili</button>
+            <button type="submit" class="btn btn-teal w-100 mb-3 shadow">register</button>
             <div class="text-center">
-                <span class="small text-muted">Tayari unayo akaunti? <a href="/login/" class="text-decoration-none fw-bold" style="color: var(--sda-teal);">Ingia Hapa</a></span>
+                <span class="small text-muted">Already haave an account? <a href="/login/" class="text-decoration-none fw-bold" style="color: var(--sda-teal);">Ingia Hapa</a></span>
             </div>
         </form>
     </div>

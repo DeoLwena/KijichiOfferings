@@ -75,15 +75,15 @@
                 {% csrf_token %}
                 <div class="mb-3">
                     <label class="form-label small fw-bold">Username</label>
-                    <input type="text" class="form-control" placeholder="Jina la mtumiaji">
+                    <input type="text" class="form-control"  name="username" placeholder="Username">
                 </div>
                 <div class="mb-4">
                     <label class="form-label small fw-bold">Password</label>
-                    <input type="password" class="form-control" placeholder="********">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-teal w-100 mb-3 shadow">Ingia Mfumoni</button>
+                <button type="submit" class="btn btn-teal w-100 mb-3 shadow">Login</button>
                 <div class="text-center">
-                    <span class="small text-muted">Huna akaunti? <a href="/register/" class="text-decoration-none fw-bold" style="color: var(--sda-teal);">Sajili Clerk Mpya</a></span>
+                    <span class="small text-muted">Dont have account? <a href="/register/" class="text-decoration-none fw-bold" style="color: var(--sda-teal);">Sajili Clerk Mpya</a></span>
                 </div>
             </form>
         </div>

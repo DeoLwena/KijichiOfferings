@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row mb-4 align-items-center">
+        <div class="col-md-6">
+            <h3 class="fw-bold text-dark">Ripoti za Fedha</h3>
+            <p class="text-muted">Tazama mchanganuo wa mapato ya kanisa.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+            <div class="btn-group">
+                <button class="btn btn-white border shadow-sm">Wiki Hii</button>
+                <button class="btn btn-white border shadow-sm active">Mwezi Huu</button>
+                <button class="btn btn-teal shadow-sm text-white" style="background-color: var(--sda-teal);">
+                    <i class="bi bi-printer me-2"></i> Chapisha Ripoti
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4 mb-5">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-4 text-center" style="border-radius: 25px;">
+                <p class="text-muted small fw-bold text-uppercase mb-1">Jumla ya Zaka (Total Tithe)</p>
+                <h2 class="fw-bold" style="color: var(--sda-teal);">Tsh 4,520,000</h2>
+                <small class="text-success"><i class="bi bi-graph-up"></i> +12% tangu mwezi uliopita</small>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-4 text-center" style="border-radius: 25px;">
+                <p class="text-muted small fw-bold text-uppercase mb-1">Jumla ya Sadaka</p>
+                <h2 class="fw-bold" style="color: var(--sda-gold);">Tsh 1,280,000</h2>
+                <small class="text-muted">Sadaka zote za idara na jumla</small>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm p-4 text-center" style="border-radius: 25px; background: var(--sda-teal-gradient); color: white;">
+                <p class="opacity-75 small fw-bold text-uppercase mb-1">Jumla Kuu (Grand Total)</p>
+                <h2 class="fw-bold">Tsh 5,800,000</h2>
+                <hr class="opacity-25">
+                <small>Kijichi SDA Stewardship 2026</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="card border-0 shadow-sm p-4" style="border-radius: 25px;">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h5 class="fw-bold">Mchanganuo wa Idara (Departmental Breakdown)</h5>
+            <input type="date" class="form-control w-auto border-0 bg-light">
+        </div>
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead class="bg-light">
+                    <tr>
+                        <th class="border-0 p-3">Idara</th>
+                        <th class="border-0">Aina ya Tozo</th>
+                        <th class="border-0">Idadi ya Watoaji</th>
+                        <th class="border-0 text-end">Jumla (Tsh)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="p-3 fw-bold">Huduma za Watoto</td>
+                        <td><span class="badge rounded-pill bg-light text-dark border">Idara</span></td>
+                        <td>45</td>
+                        <td class="text-end fw-bold">450,000/=</td>
+                    </tr>
+                    <tr>
+                        <td class="p-3 fw-bold">Kwaya Kuu</td>
+                        <td><span class="badge rounded-pill bg-light text-dark border">Idara</span></td>
+                        <td>12</td>
+                        <td class="text-end fw-bold">120,000/=</td>
+                    </tr>
+                    <tr class="table-light">
+                        <td colspan="3" class="p-3 fw-bold">JUMLA YA SADAKA ZA IDARA</td>
+                        <td class="text-end fw-bold text-teal">570,000/=</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
