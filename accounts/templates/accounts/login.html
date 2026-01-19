@@ -61,29 +61,29 @@
         <div class="login-info d-none d-md-flex">
             <i class="bi bi-intersect h1 mb-4" style="color: var(--sda-gold);"></i>
             <h2 class="fw-bold">Kijichi SDA</h2>
-            <p class="opacity-75">Karibu kwenye mfumo wa uwakili. Ingia ili kuendelea na huduma.</p>
+            <p class="opacity-75">Karibu kwenye mfumo wa kuhifadhi Matoleo. Ingia ili kuendelea na huduma.</p>
             <div class="mt-auto">
-                <small class="opacity-50">© 2026 Kijichi SDA Church</small>
+                <small class="opacity-50"> © Kijichi SDA 2026</small>
             </div>
         </div>
 
         <div class="login-form-side">
-            <h3 class="fw-bold text-dark mb-2">Ingia (Login)</h3>
+            <h3 class="fw-bold text-dark mb-2">Ingia</h3>
             <p class="text-muted mb-4 small">Tumia taarifa zako za Clerk kuingia.</p>
 
             <form method="POST">
                 {% csrf_token %}
                 <div class="mb-3">
-                    <label class="form-label small fw-bold">Username</label>
+                    <label class="form-label small fw-bold">Jina</label>
                     <input type="text" class="form-control"  name="username" placeholder="Username">
                 </div>
                 <div class="mb-4">
-                    <label class="form-label small fw-bold">Password</label>
+                    <label class="form-label small fw-bold">Nywila</label>
                     <input type="password" class="form-control" name="password" placeholder="Password">
                 </div>
-                <button type="submit" class="btn btn-teal w-100 mb-3 shadow">Login</button>
+                <button type="submit" class="btn btn-teal w-100 mb-3 shadow">Ingia</button>
                 <div class="text-center">
-                    <span class="small text-muted">Dont have account? <a href="/register/" class="text-decoration-none fw-bold" style="color: var(--sda-teal);">Sajili Clerk Mpya</a></span>
+                    <span class="small text-muted">Dont have account? <a href="/register/" class="text-decoration-none fw-bold" style="color: var(--sda-teal);">Sajili Mhazini Mpya</a></span>
                 </div>
             </form>
         </div>
