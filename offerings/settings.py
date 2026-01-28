@@ -85,7 +85,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME':'KijichiOffering',
         'USER':'postgres',
-        'PASSWORD':'3377',
+        'PASSWORD':'tiktokdok3',
         'HOST':'localhost',
         'PORT':'5432',
     }
