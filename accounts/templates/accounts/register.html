@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register | Kijichi SDA Stewardship</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
         :root {
@@ -12,8 +13,17 @@
             --sda-teal-dark: #004d4d;
             --sda-gold: #c5a059;
         }
-        body { background-color: #f4f7f6; font-family: 'Inter', sans-serif; }
-        .reg-container { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        body {
+            background-color: #f4f7f6;
+            font-family: 'Inter', sans-serif;
+        }
+        .reg-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
         .reg-card {
             background: white;
             border-radius: 30px;
@@ -21,19 +31,60 @@
             box-shadow: 0 20px 60px rgba(0,0,0,0.1);
             max-width: 500px;
             width: 100%;
-            padding: 40px;
+            padding: 45px;
+            border-top: 5px solid var(--sda-gold); /* Golden Strip Accent */
+            position: relative;
         }
+
+        .reg-logo {
+            max-width: 90px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+        }
+
+        .form-label {
+            color: var(--sda-teal);
+            letter-spacing: 0.5px;
+        }
+
         .form-control {
             border-radius: 12px;
-            padding: 10px 15px;
+            padding: 12px 15px;
             border: 1px solid #e0e0e0;
+            background: #fdfdfd;
+            transition: 0.3s;
         }
+        .form-control:focus {
+            border-color: var(--sda-teal);
+            box-shadow: 0 0 0 0.25rem rgba(0, 128, 128, 0.1);
+        }
+
+        .input-group-text {
+            border-radius: 12px 0 0 12px;
+            background-color: #f8f9fa;
+            border-right: none;
+            color: #6c757d;
+        }
+        .form-control.with-icon {
+            border-radius: 0 12px 12px 0;
+            border-left: none;
+        }
+
         .btn-teal {
             background: var(--sda-teal);
             color: white;
             border-radius: 12px;
-            padding: 12px;
+            padding: 14px;
             font-weight: 600;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-teal:hover {
+            background: var(--sda-teal-dark);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -42,32 +93,203 @@
 <div class="container reg-container">
     <div class="reg-card">
         <div class="text-center mb-4">
-            <i class="bi bi-intersect h2" style="color: var(--sda-teal);"></i>
-            <h4 class="fw-bold mt-2">Sajili Clerk Mpya</h4>
-            <p class="text-muted small">Tengeneza akaunti ya usimamizi wa matoleo</p>
+            <img src="your-logo.png" alt="SDA Logo" class="reg-logo">
+            <h4 class="fw-bold mt-2 text-dark">Sajili Clerk Mpya</h4>
+            <p class="text-muted small">Tengeneza akaunti ya usimamizi wa matoleo Kijichi SDA</p>
         </div>
 
         <form method="POST">
             {% csrf_token %}
+
             <div class="mb-3">
-                <label class="form-label small fw-bold">Full name</label>
-                <input type="text" class="form-control" name="username" placeholder="e.g. Jane Woka">
+                <label class="form-label small fw-bold text-uppercase">Jina Kamili</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                    <input type="text" class="form-control with-icon" name="username" placeholder="e.g. Jane Woka" required>
+                </div>
             </div>
+
             <div class="mb-3">
-                <label class="form-label small fw-bold">Email</label>
-                <input type="email" class="form-control" name="email" placeholder="janewoka@email.com">
+                <label class="form-label small fw-bold text-uppercase">Barua Pepe (Email)</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                    <input type="email" class="form-control with-icon" name="email" placeholder="janewoka@email.com" required>
+                </div>
             </div>
+
             <div class="mb-3">
-                <label class="form-label small fw-bold">Password</label>
-                <input type="password" class="form-control" name="password1" placeholder="********">
+                <label class="form-label small fw-bold text-uppercase">Nywila</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-shield-lock"></i></span>
+                    <input type="password" class="form-control with-icon" name="password1" placeholder="********" required>
+                </div>
             </div>
+
             <div class="mb-4">
-                <label class="form-label small fw-bold">confirm password</label>
-                <input type="password" class="form-control" name="password2" placeholder="********">
+                <label class="form-label small fw-bold text-uppercase">Thibitisha Nywila</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-check2-circle"></i></span>
+                    <input type="password" class="form-control with-icon" name="password2" placeholder="********" required>
+                </div>
             </div>
-            <button type="submit" class="btn btn-teal w-100 mb-3 shadow">register</button>
+
+            <button type="submit" class="btn btn-teal w-100 mb-4 shadow-sm">
+                Kamilisha Usajili <i class="bi bi-person-plus ms-2"></i>
+            </button>
+
             <div class="text-center">
-                <span class="small text-muted">Already haave an account? <a href="/login/" class="text-decoration-none fw-bold" style="color: var(--sda-teal);">Ingia Hapa</a></span>
+                <span class="small text-muted">Tayari una akaunti?
+                    <a href="/login/" class="text-decoration-none fw-bold ms-1" style="color: var(--sda-gold);">Ingia Hapa</a>
+                </span>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Kijichi SDA Stewardship</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --sda-teal: #008080;
+            --sda-teal-dark: #004d4d;
+            --sda-gold: #c5a059;
+        }
+        body {
+            background-color: #f4f7f6;
+            font-family: 'Inter', sans-serif;
+        }
+        .reg-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .reg-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            max-width: 500px;
+            width: 100%;
+            padding: 45px;
+            border-top: 5px solid var(--sda-gold); /* Golden Strip Accent */
+            position: relative;
+        }
+
+        .reg-logo {
+            max-width: 90px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.1));
+        }
+
+        .form-label {
+            color: var(--sda-teal);
+            letter-spacing: 0.5px;
+        }
+
+        .form-control {
+            border-radius: 12px;
+            padding: 12px 15px;
+            border: 1px solid #e0e0e0;
+            background: #fdfdfd;
+            transition: 0.3s;
+        }
+        .form-control:focus {
+            border-color: var(--sda-teal);
+            box-shadow: 0 0 0 0.25rem rgba(0, 128, 128, 0.1);
+        }
+
+        .input-group-text {
+            border-radius: 12px 0 0 12px;
+            background-color: #f8f9fa;
+            border-right: none;
+            color: #6c757d;
+        }
+        .form-control.with-icon {
+            border-radius: 0 12px 12px 0;
+            border-left: none;
+        }
+
+        .btn-teal {
+            background: var(--sda-teal);
+            color: white;
+            border-radius: 12px;
+            padding: 14px;
+            font-weight: 600;
+            border: none;
+            transition: 0.3s;
+        }
+        .btn-teal:hover {
+            background: var(--sda-teal-dark);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container reg-container">
+    <div class="reg-card">
+        <div class="text-center mb-4">
+            <img src="your-logo.png" alt="SDA Logo" class="reg-logo">
+            <h4 class="fw-bold mt-2 text-dark">Sajili Clerk Mpya</h4>
+            <p class="text-muted small">Tengeneza akaunti ya usimamizi wa matoleo Kijichi SDA</p>
+        </div>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label class="form-label small fw-bold text-uppercase">Jina Kamili</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person"></i></span>
+                    <input type="text" class="form-control with-icon" name="username" placeholder="e.g. Jane Woka" required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label small fw-bold text-uppercase">Barua Pepe (Email)</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                    <input type="email" class="form-control with-icon" name="email" placeholder="janewoka@email.com" required>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label small fw-bold text-uppercase">Nywila</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-shield-lock"></i></span>
+                    <input type="password" class="form-control with-icon" name="password1" placeholder="********" required>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label small fw-bold text-uppercase">Thibitisha Nywila</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-check2-circle"></i></span>
+                    <input type="password" class="form-control with-icon" name="password2" placeholder="********" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-teal w-100 mb-4 shadow-sm">
+                Kamilisha Usajili <i class="bi bi-person-plus ms-2"></i>
+            </button>
+
+            <div class="text-center">
+                <span class="small text-muted">Tayari una akaunti?
+                    <a href="/login/" class="text-decoration-none fw-bold ms-1" style="color: var(--sda-gold);">Ingia Hapa</a>
+                </span>
             </div>
         </form>
     </div>

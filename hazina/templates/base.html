@@ -39,11 +39,9 @@
             box-shadow: 10px 0 30px rgba(0,0,0,0.1);
         }
 
-        #sidebar.hidden {
-            transform: translateX(-100%);
-        }
+        #sidebar.hidden { transform: translateX(-100%); }
 
-        /* Logo Area - Updated to Kijichi SDA */
+        /* Logo Area - Golden Strip + PNG Support */
         .logo-section {
             height: 200px;
             display: flex;
@@ -54,16 +52,17 @@
             border-bottom: 3px solid var(--sda-gold);
             border-radius: 0 0 50px 50px;
             margin-bottom: 20px;
+            padding: 10px;
         }
 
-        .sda-icon-box {
-            font-size: 3.5rem;
-            color: white;
-            line-height: 1;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        .logo-section img {
+            max-width: 110px;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.2));
         }
 
-        /* --- STYLISH BUTTON MOVEMENTS --- */
+        /* --- NAVIGATION LINKS --- */
         .nav-link-custom {
             padding: 14px 25px;
             color: rgba(255,255,255,0.7) !important;
@@ -73,24 +72,24 @@
             margin: 8px 15px;
             border-radius: 15px;
             text-decoration: none;
-            position: relative;
-            overflow: hidden;
+            background: transparent;
         }
 
         .nav-link-custom:hover {
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.1);
             color: white !important;
-            transform: translateX(10px) scale(1.02);
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+            transform: translateX(10px);
         }
 
+        /* THE ACTIVE WHITE STATE */
         .nav-link-custom.active {
-            background: white;
+            background-color: white !important;
             color: var(--sda-teal) !important;
             font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        /* --- TOPBAR --- */
+        /* --- TOPBAR & WRAPPER --- */
         .top-navbar {
             height: 75px;
             background: white;
@@ -103,32 +102,17 @@
             right: 0;
             z-index: 1000;
             box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            transition: all var(--transition-speed) cubic-bezier(0.77, 0, 0.175, 1);
+            transition: all var(--transition-speed);
         }
 
-        .top-navbar.expanded {
-            left: 0;
-        }
-
-        .brand-text {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--sda-teal-dark);
-            margin-left: 20px;
-            white-space: nowrap;
-        }
-
-        /* --- MAIN CONTENT --- */
+        .top-navbar.expanded { left: 0; }
         #main-wrapper {
             margin-left: var(--sidebar-width);
             margin-top: 75px;
             padding: 40px;
-            transition: all var(--transition-speed) cubic-bezier(0.77, 0, 0.175, 1);
+            transition: all var(--transition-speed);
         }
-
-        #main-wrapper.expanded {
-            margin-left: 0;
-        }
+        #main-wrapper.expanded { margin-left: 0; }
 
         .toggle-btn {
             background: #f0fdfd;
@@ -136,13 +120,7 @@
             border: 2px solid var(--sda-teal);
             border-radius: 12px;
             padding: 5px 12px;
-            transition: all 0.3s;
-        }
-
-        .toggle-btn:hover {
-            background: var(--sda-teal);
-            color: white;
-            transform: rotate(90deg);
+            cursor: pointer;
         }
     </style>
 </head>
@@ -150,15 +128,13 @@
 
     <nav id="sidebar">
         <div class="logo-section">
-            <div class="sda-icon-box">
-                <i class="bi bi-intersect"></i>
-            </div>
+            <img src="your-logo.png" alt="SDA Logo">
             <span class="mt-2 fw-bold" style="letter-spacing: 2px; font-size: 1.1rem; color: var(--sda-gold);">Kijichi SDA</span>
             <small class="opacity-75 text-uppercase" style="font-size: 0.65rem; letter-spacing: 1px;">Mfumo wa Matoleo </small>
         </div>
 
-        <div class="mt-2">
-            <a href="http://127.0.0.1:8000/Matoleo/" class="nav-link-custom active">
+        <div class="mt-2" id="nav-container">
+            <a href="http://127.0.0.1:8000/Matoleo/" class="nav-link-custom">
                 <i class="bi bi-speedometer2 me-3"></i> Ubao
             </a>
             <a href="http://127.0.0.1:8000/Matoleo/clerks" class="nav-link-custom">
@@ -173,7 +149,7 @@
             <div class="px-4 mt-5">
                 <hr class="text-white opacity-25">
             </div>
-            <a href="http://127.0.0.1:8000/" class="nav-link-custom text-warning">
+            <a href="http://127.0.0.1:8000/" class="nav-link-custom text-warning" id="logout-btn">
                 <i class="bi bi-door-closed me-3"></i> Ondoka
             </a>
         </div>
@@ -183,16 +159,7 @@
         <button class="toggle-btn" onclick="toggleSidebar()">
             <i class="bi bi-list"></i>
         </button>
-        <div class="brand-text">
-            Kanisa la waadventista wa Sabato Kijichi
-        </div>
-
-        <div class="ms-auto d-flex align-items-center">
-            <div class="bg-dark text-white rounded-4 p-2 px-3 d-flex align-items-center">
-                <i class="bi bi-person-circle me-2"></i>
-                <small>Mhazini</small>
-            </div>
-        </div>
+        <div class="brand-text ms-3 fw-bold">Kanisa la waadventista wa Sabato Kijichi</div>
     </header>
 
     <div id="main-wrapper">
@@ -202,14 +169,29 @@
 
     <script>
         function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            const topNav = document.getElementById('topNav');
-            const mainWrapper = document.getElementById('main-wrapper');
-
-            sidebar.classList.toggle('hidden');
-            topNav.classList.toggle('expanded');
-            mainWrapper.classList.toggle('expanded');
+            document.getElementById('sidebar').classList.toggle('hidden');
+            document.getElementById('topNav').classList.toggle('expanded');
+            document.getElementById('main-wrapper').classList.toggle('expanded');
         }
+
+        // PRECISE DYNAMIC ACTIVE SCRIPT
+        document.addEventListener("DOMContentLoaded", function() {
+            // Get current URL without the domain for easier matching
+            const currentPath = window.location.href;
+            const navLinks = document.querySelectorAll('.nav-link-custom');
+
+            navLinks.forEach(link => {
+                // Remove active class from everything first
+                link.classList.remove('active');
+
+                // Logic:
+                // 1. If it's an exact match, make it active.
+                // 2. We use a "normalized" comparison to prevent Ondoka (/) from matching /Matoleo/
+                if (currentPath === link.href || currentPath === link.href + '/') {
+                    link.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>

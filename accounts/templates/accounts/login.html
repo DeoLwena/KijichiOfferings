@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Kijichi SDA Stewardship</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     <style>
         :root {
@@ -12,8 +13,12 @@
             --sda-teal-dark: #004d4d;
             --sda-gold: #c5a059;
         }
-        body { background-color: #f4f7f6; font-family: 'Inter', sans-serif; }
+        body {
+            background-color: #f4f7f6;
+            font-family: 'Inter', sans-serif;
+        }
         .login-container { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+
         .login-card {
             background: white;
             border-radius: 30px;
@@ -23,6 +28,8 @@
             width: 100%;
             display: flex;
         }
+
+        /* Side Info Panel */
         .login-info {
             background: linear-gradient(135deg, var(--sda-teal) 0%, var(--sda-teal-dark) 100%);
             padding: 60px;
@@ -30,15 +37,32 @@
             width: 45%;
             display: flex;
             flex-direction: column;
+            align-items: center; /* Center-align for the logo */
             justify-content: center;
+            text-align: center;
         }
+
+        /* The PNG Logo Style */
+        .login-logo {
+            max-width: 130px;
+            height: auto;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+        }
+
         .login-form-side { padding: 60px; width: 55%; }
+
         .form-control {
             border-radius: 12px;
             padding: 12px 15px;
             border: 1px solid #e0e0e0;
             background: #fdfdfd;
         }
+        .form-control:focus {
+            border-color: var(--sda-teal);
+            box-shadow: 0 0 0 0.25rem rgba(0, 128, 128, 0.1);
+        }
+
         .btn-teal {
             background: var(--sda-teal);
             color: white;
@@ -46,11 +70,19 @@
             padding: 12px;
             font-weight: 600;
             transition: 0.3s;
+            border: none;
         }
-        .btn-teal:hover { background: var(--sda-teal-dark); color: white; transform: translateY(-2px); }
+        .btn-teal:hover {
+            background: var(--sda-teal-dark);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
         @media (max-width: 768px) {
-            .login-card { flex-direction: column; }
+            .login-card { flex-direction: column; margin: 20px; }
             .login-info, .login-form-side { width: 100%; padding: 40px; }
+            .login-logo { max-width: 100px; }
         }
     </style>
 </head>
@@ -59,31 +91,53 @@
 <div class="container login-container">
     <div class="login-card">
         <div class="login-info d-none d-md-flex">
-            <i class="bi bi-intersect h1 mb-4" style="color: var(--sda-gold);"></i>
-            <h2 class="fw-bold">Kijichi SDA</h2>
+            <img src="your-logo.png" alt="Kijichi SDA Logo" class="login-logo">
+
+            <h2 class="fw-bold" style="color: var(--sda-gold);">Kijichi SDA</h2>
             <p class="opacity-75">Karibu kwenye mfumo wa kuhifadhi Matoleo. Ingia ili kuendelea na huduma.</p>
+
             <div class="mt-auto">
                 <small class="opacity-50"> © Kijichi SDA 2026</small>
             </div>
         </div>
 
         <div class="login-form-side">
-            <h3 class="fw-bold text-dark mb-2">Ingia</h3>
-            <p class="text-muted mb-4 small">Tumia taarifa zako za Clerk kuingia.</p>
+            <div class="mb-4">
+                <h3 class="fw-bold text-dark mb-2">Ingia</h3>
+                <p class="text-muted small">Tumia taarifa zako za Mhazini (Clerk) kuingia kwenye mfumo.</p>
+            </div>
 
             <form method="POST">
                 {% csrf_token %}
                 <div class="mb-3">
-                    <label class="form-label small fw-bold">Jina</label>
-                    <input type="text" class="form-control"  name="username" placeholder="Username">
+                    <label class="form-label small fw-bold text-uppercase" style="letter-spacing: 1px; color: var(--sda-teal);">Jina la Mtumiaji</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light border-end-0" style="border-radius: 12px 0 0 12px;">
+                            <i class="bi bi-person text-muted"></i>
+                        </span>
+                        <input type="text" class="form-control border-start-0" name="username" placeholder="Username" required style="border-radius: 0 12px 12px 0;">
+                    </div>
                 </div>
+
                 <div class="mb-4">
-                    <label class="form-label small fw-bold">Nywila</label>
-                    <input type="password" class="form-control" name="password" placeholder="Password">
+                    <label class="form-label small fw-bold text-uppercase" style="letter-spacing: 1px; color: var(--sda-teal);">Nywila</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light border-end-0" style="border-radius: 12px 0 0 12px;">
+                            <i class="bi bi-lock text-muted"></i>
+                        </span>
+                        <input type="password" class="form-control border-start-0" name="password" placeholder="Password" required style="border-radius: 0 12px 12px 0;">
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-teal w-100 mb-3 shadow">Ingia</button>
+
+                <button type="submit" class="btn btn-teal w-100 mb-4 shadow-sm">
+                    Ingia Sasa <i class="bi bi-arrow-right ms-2"></i>
+                </button>
+
                 <div class="text-center">
-                    <span class="small text-muted">Dont have account? <a href="/register/" class="text-decoration-none fw-bold" style="color: var(--sda-teal);">Sajili Mhazini Mpya</a></span>
+                    <p class="small text-muted">Hauna akaunti bado?
+                        <br class="d-md-none">
+                        <a href="/register/" class="text-decoration-none fw-bold" style="color: var(--sda-gold);">Sajili Mhazini Mpya</a>
+                    </p>
                 </div>
             </form>
         </div>
