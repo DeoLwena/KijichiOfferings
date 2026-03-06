@@ -21,5 +21,5 @@ import hazina.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Matoleo/',include('hazina.url')),
-    path('',include('accounts.url')),
+    path('',include('core.url')),
 ]

@@ -5,6 +5,31 @@ from django.contrib import messages
 
 
 # Create your views here.
+def login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request,user)
+
+            if user.groups.filter(name='admin').exists():
+                return redirect('admin_home')
+
+            elif user.groups.filter(name='Mchungaji').exists():
+                return redirect('mchungaji_home')
+
+            elif user.groups.filter(name='Wahazini').exists():
+                return redirect('mhazini_home')
+
+            elif user.groups.filter(name = 'uwakili').exists():
+                return redirect('uwakili_home')
+
+            else:
+                return redirect('login')
+
+
 
 def register(request):
     if request.method == 'POST':
@@ -29,7 +54,7 @@ def register(request):
         messages.success(request,'Account is successfully created')
         return redirect('login')
 
-    return render (request,'accounts/register.html')
+    return render (request,'core/register.html')
 
 @login_required
 def dashboard(request):
