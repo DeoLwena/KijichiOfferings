@@ -21,5 +21,9 @@ import hazina.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Matoleo/',include('hazina.url')),
+    path('Mashemasi/',include('Mashemasi.url')),
+    path('Mchungaji/', include('Mchungaji.url')),
+    path('Uwakili/', include('Uwakili.url')),
+    path('Wahazini/', include('Wahazini.url')),
     path('',include('core.url')),
 ]

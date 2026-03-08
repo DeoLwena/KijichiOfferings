@@ -5,14 +5,14 @@ from django.contrib import messages
 
 
 # Create your views here.
-def login(request):
+def user_login(request, user):
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
+        username = request.POST.get['username']
+        password = request.POST.get['password']
 
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            login(request,user)
+            login(request, user)
 
             if user.groups.filter(name='admin').exists():
                 return redirect('admin_home')
@@ -26,8 +26,11 @@ def login(request):
             elif user.groups.filter(name = 'uwakili').exists():
                 return redirect('uwakili_home')
 
+            elif user.groups.filter(name = 'Mashemasi').exists():
+                return redirect('Mashemasi_home')
             else:
                 return redirect('login')
+    return render(request, 'core/login.html')
 
 
 
