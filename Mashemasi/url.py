@@ -1,9 +1,10 @@
 from django.urls import path
-from . import views
+from Mashemasi.views import DashboardView
+
 
 urlpatterns=[
 
-    path('', views.Dashboard, name='mashemasi.home'),
+    path('', DashboardView.as_view, name='mashemasi.home'),
 
 
 ]
