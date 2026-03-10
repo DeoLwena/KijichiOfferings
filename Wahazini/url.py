@@ -1,5 +1,5 @@
 from django.urls import path
-from Uwakili.views import DashboardView
+from Wahazini.views import DashboardView
 
 
 urlpatterns=[
