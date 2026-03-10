@@ -4,7 +4,6 @@ from django.views import View
 
 # Create your views here.
 class DashboardView(View):
-
     def get(self, request):
         return render(request,'wahazini_home.html')
 

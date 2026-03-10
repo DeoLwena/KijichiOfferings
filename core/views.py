@@ -16,7 +16,7 @@ def user_login(request):
             login(request, user)
 
             if user.groups.filter(name='admin').exists():
-                return redirect('admin_home')
+                return redirect('admin:index')
 
             elif user.groups.filter(name='Mchungaji').exists():
                 return redirect('mchungaji_home')
