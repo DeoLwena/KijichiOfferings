@@ -1,7 +1,6 @@
 from django.urls import path
-
 from Uwakili.views import DashboardView
-from . import views
+
 
 urlpatterns=[
 
