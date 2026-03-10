@@ -4,7 +4,7 @@ from Mashemasi.views import DashboardView
 
 urlpatterns=[
 
-    path('', DashboardView.as_view, name='mashemasi.home'),
+    path('', DashboardView.as_view(), name='Mashemasi_home'),
 
 
 ]

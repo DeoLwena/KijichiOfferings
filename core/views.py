@@ -15,8 +15,8 @@ def user_login(request):
         if user is not None:
             login(request, user)
 
-            if user.groups.filter(name='admin').exists():
-                return redirect('admin_home')
+            if user.is_staff:
+                return redirect('admin:index')
 
             elif user.groups.filter(name='Mchungaji').exists():
                 return redirect('mchungaji_home')
@@ -24,8 +24,8 @@ def user_login(request):
             elif user.groups.filter(name='Wahazini').exists():
                 return redirect('mhazini_home')
 
-            elif user.groups.filter(name = 'uwakili').exists():
-                return redirect('uwakili_home')
+            elif user.groups.filter(name = 'Uwakili').exists():
+                return redirect('Uwakili')
 
             elif user.groups.filter(name = 'Mashemasi').exists():
                 return redirect('Mashemasi_home')
