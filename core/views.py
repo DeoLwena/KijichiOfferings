@@ -14,19 +14,16 @@ def user_login(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-
-            if user.groups.filter(name='admin').exists():
+            if user.is_staff:
                 return redirect('admin:index')
-
             elif user.groups.filter(name='Mchungaji').exists():
                 return redirect('mchungaji_home')
-
+            elif user.groups.filter(name='Uwakili').exists():
+                return redirect('steward_home')
+            elif user.groups.filter(name='Washiriki').exists():
+                return redirect('mshiriki_home')
             elif user.groups.filter(name='Wahazini').exists():
                 return redirect('mhazini_home')
-
-            elif user.groups.filter(name = 'uwakili').exists():
-                return redirect('uwakili_home')
-
             elif user.groups.filter(name = 'Mashemasi').exists():
                 return redirect('Mashemasi_home')
             else:
@@ -50,7 +47,7 @@ def register(request):
             messages.error(request,'username exists')
             return redirect('register')
 
-        user = User.objects.create_user(
+        User.objects.create_user(
             username = jina,
             email = email,
             password=password1

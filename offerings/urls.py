@@ -22,8 +22,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('Matoleo/',include('hazina.url')),
     path('Mashemasi/',include('Mashemasi.url')),
+    path('Uwakili/',include('Steward.url')),
     path('Mchungaji/', include('Mchungaji.url')),
-    path('Uwakili/', include('Uwakili.url')),
     path('Wahazini/', include('Wahazini.url')),
+    path('Mshiriki/', include('mshiriki.url')),
     path('',include('core.url')),
 ]
