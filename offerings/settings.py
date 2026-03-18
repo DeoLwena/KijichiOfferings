@@ -36,12 +36,9 @@ INSTALLED_APPS = [
 
     'widget_tweaks',
     'hazina',
-    'offerings',
-    'Mashemasi',
-    'Mchungaji',
-    'Steward',
-    'mshiriki',
-    'Wahazini',
+    'matoleo',
+    'accounts',
+    'Reports',
     'django.contrib.sessions',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -49,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+
 ]
 
 MIDDLEWARE = [
@@ -66,7 +64,7 @@ ROOT_URLCONF = 'offerings.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR, 'templates'],
+        'DIRS': [BASE_DIR/ 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
