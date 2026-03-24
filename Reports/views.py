@@ -5,6 +5,6 @@ from django.views import View
 
 
 class ReportsHome(View):
-    @role_required('Wahazini', 'Mchungaji', 'Uwakili')
+    @role_required(['Wahazini', 'Mchungaji', 'Uwakili'])
     def get(self, request):
         return render(request,'Reports.html')

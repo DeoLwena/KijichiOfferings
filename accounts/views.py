@@ -25,10 +25,10 @@ def user_login(request):
             elif user.groups.filter(name='Wahazini').exists():
                 return redirect('mhazini_home')
             elif user.groups.filter(name = 'Mashemasi').exists():
-                return redirect('Mashemasi_home')
+                return redirect('mashemasi_home')
             else:
                 return redirect('login')
-    return render(request, 'core/login.html')
+    return render(request, 'accounts/login.html')
 
 
 
@@ -55,7 +55,7 @@ def register(request):
         messages.success(request,'Account is successfully created')
         return redirect('login')
 
-    return render (request,'core/register.html')
+    return render (request,'accountsaccounts/register.html')
 
 @login_required
 def dashboard(request):
