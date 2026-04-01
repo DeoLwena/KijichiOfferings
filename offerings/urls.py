@@ -16,12 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-import hazina.views
+from rest_framework_simplejwt.views import (TokenObtainPairView,TokenRefreshView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('Reports/', include('Reports.url')),
+    path('matoleo/', include('matoleo.url')),
+    path('watoaji/', include('Watoaji.url')),
     path('',include('accounts.url')),
     path('Offerings/',include('core.url')),
+    path('api/Token/',TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/Token/refresh/',TokenRefreshView.as_view(), name='token_refresh'),
 
 ]

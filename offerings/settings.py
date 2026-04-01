@@ -35,7 +35,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
 
     'widget_tweaks',
-    'hazina',
+    'Watoaji',
     'matoleo',
     'accounts',
     'Reports',
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'rest_framework'
 
 ]
 
@@ -88,7 +89,7 @@ LOGIN_URL = 'login'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':'KijichiOffering',
+        'NAME':'matoleo',
         'USER':'postgres',
         'PASSWORD':'tiktokdok3',
         'HOST':'localhost',
@@ -132,3 +133,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+REST_FRAMEWORK = {
+
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
